@@ -127,7 +127,7 @@ Class session extends user {
 		}
 	}
 	
-	public function cookies ($uid,$sid) {
+	protected function cookies ($uid,$sid) {
 		$_SESSION['uid'] = htmlspecialchars($uid);
 		$_SESSION['sid'] = htmlspecialchars($sid);
 		return true;
