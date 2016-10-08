@@ -1,4 +1,9 @@
 <?php
+
+/*
+Copyright 2016 Koen Hollander
+*/
+
 @ini_set("session.hash_function","sha512");
 @session_start();
 
