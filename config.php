@@ -16,16 +16,13 @@ if ($debug === TRUE) {
 
 $db = array();
 $db['host'] = "localhost";
-$db['user'] = "root";
+$db['user'] = "";
 $db['pass'] = "";
-$db['data'] = "mijnwesel";
+$db['data'] = "";
 
 $con = new mysqli($db['host'],$db['user'],$db['pass'],$db['data']);
 
-//require_once ("class/");
-//$class = new Class();
-
-require_once ("class/user.class.php");
+require_once ("user.class.php");
 $user = new user($con);
 $session = new session($con);
 
