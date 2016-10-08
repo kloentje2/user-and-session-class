@@ -1,4 +1,9 @@
-<?php
+<?php 
+
+/*
+Copyright 2016 Koen Hollander
+*/
+
 Class user {
 	
 	protected $con = "";
