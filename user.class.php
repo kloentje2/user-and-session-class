@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 /*
-Copyright 2016 Koen Hollander
+Copyright 2016 - Koen Hollander
 */
 
 Class user {
@@ -133,6 +133,7 @@ Class session extends user {
 	}
 	
 	protected function cookies ($uid,$sid) {
+		session_regenerate_id();
 		$_SESSION['uid'] = htmlspecialchars($uid);
 		$_SESSION['sid'] = htmlspecialchars($sid);
 		return true;
@@ -195,10 +196,12 @@ Class session extends user {
 		
 		if ($q) {
 			if (session_destroy()) {
+				@session_regenerate_id();
 				unset($_SESSION);
 				return true;
 				exit;
 			} elseif (!session_destroy()) {
+				session_regenerate_id();
 				return false;
 				exit;
 			}
