@@ -138,10 +138,12 @@ Class session extends user {
 			return false;
 			exit;
 		}
+		
 		if (!isset($uid) || trim((int)$uid) == NULL) {
 			return false;
 			exit;
 		}
+		
 		$q = $this->con->query
 		("
 		SELECT userid
@@ -155,6 +157,7 @@ Class session extends user {
 		ip = '".$this->con->real_escape_string($_SERVER['REMOTE_ADDR'])."'
 		LIMIT 1
 		");
+		
 		if ($q) {
 			$r = $q->fetch_assoc();
 			if ($uid == $r['userid']) {
@@ -174,6 +177,7 @@ Class session extends user {
 			return false;
 			exit;
 		}
+		
 		$q = $this->con->query
 		("
 		UPDATE 
